@@ -7,3 +7,13 @@
  - Node Js 
  - Express Js 
  - MongoDB Database.
+
+#### Commonly some middleware which I have use this project 
+```javascript 
+    const cors = require("cors");
+    app.use(cors()) // as a middleware 
+```
+
+```javascript 
+    app.use(express.json()) // for get request body document
+```
