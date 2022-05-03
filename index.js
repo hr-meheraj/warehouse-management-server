@@ -3,13 +3,13 @@ const app = express();
 const cors = require("cors");
 const port = process.env.PORT || 8000;
 const jwt = require("jsonwebtoken");
+const { MongoClient, ObjectId, ServerApiVersion } = require("mongodb");
 
 // Common Middleware
 app.use(express.json());
 app.use(cors());
 
 // Mongodb Basic needed
-const { MongoClient, ObjectId, ServerApiVersion } = require("mongodb");
 const uri =
   "mongodb+srv://hrmeheraj:hrmeheraj2007@cluster0.cv5my.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
@@ -18,6 +18,7 @@ const client = new MongoClient(uri, {
   serverApi: ServerApiVersion.v1,
 });
 
+// First Sign then Verify
 // Secret Token - You have to hide to for security
 const secretToken =
   "r07Hi+Oahq22PNr6LTTIvD+Z38dRUnh0l3FrUUq8EJUtca9vH8oJa+mFe/AlOrPpKLuE/SbX0aoPO/NYaGcrR5gJUScWSxQolkBHyNvQ6Eq5EypTf13ck6O1xRMyBQo9RVgqkz2aHiBST6MuAF5iNgXjC3LLFyqsd/r+x3BADBp/WpKskQ7+zUBEKi9lXMl00L6Hq6vVAfatZmLv+i/MKu40MGcWIvJfFYj+VtywnhlDVNuRWfeSo7Ry5PeyS+dtutCSpCGefiItCPWA9oKHTZI9oUh1rnKmBk+LVkBo80vXo7ydwV5lzaGd5kGyNKUjpHQKMuR52hrfBZBzFYEOjA==";
