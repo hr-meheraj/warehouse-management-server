@@ -3,13 +3,14 @@ const app = express();
 const cors = require("cors");
 const port = process.env.PORT || 8000;
 const jwt = require("jsonwebtoken");
-const { MongoClient, ObjectId, ServerApiVersion } = require("mongodb");
+
 
 // Common Middleware
 app.use(express.json());
 app.use(cors());
 
 // Mongodb Basic needed
+const { MongoClient, ObjectId, ServerApiVersion } = require("mongodb");
 const uri =
   "mongodb+srv://hrmeheraj:hrmeheraj2007@cluster0.cv5my.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {
